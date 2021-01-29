@@ -80,11 +80,50 @@ class FolderblePhone() extends Phone{
 
 ## 다이나믹 메소드 디스패치 (Dynamic Method Dispatch)
 
+메소드 디스패치(Method Dispatch)란 어떤 메소드를 호출할지 결정하여 실제로 실행시키는 과정을 말한다. 
+
+다이나믹 메소드 디스패치는 인터페이스 혹은 추상 클래스에서 오버라이드 받은 추상 메소드를 호출하고 실행하는 경우를 말한다. 
+```
+public class Car {
+  public void speedUp() {
+    System.out.println("Car speedUp!!!");
+  }
+}
+
+public class SportsCar extends Car {
+  @Override
+  public void speedUp() {
+    System.out.println("SportsCar speedUp!!!");
+  }
+}
+
+public class Main {
+
+  public static void main(String[] args) {
+    Car a = new Car(); // Car 참조, Car 객체
+    Car b = new SportsCar(); // Car 참조, SportsCar 객체
+
+    a.speedUp(); // Car 클래스에 정의된 메서드 실행
+    b.speedUp(); // SportsCar 클래스에 정의된 메서드가 실행됨(다이나믹 메소드 디스패치)
+  }
+}
+```
+이 결과는 다음과 같이 출력된다. 
+```
+Car speedUp!!!
+SportsCar speedUp!!!
+```
+이런 식으로 변수 a, b 둘 다 참조 타입은 Car 지만, JVM이 객체 타입을 확인하고 그 객체에 정의된 메소드를 실행한다. 
 
 ## 추상 클래스
+
 
 
 ## final 키워드
 
 
+
 ## Object 클래스
+
+
+
